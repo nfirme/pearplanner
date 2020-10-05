@@ -6,13 +6,17 @@
 #innerTD {
     border: 1px solid black;
 }
+#toDoTD {
+  border: 1px solid black;
+  padding: 15px 2px;
+}
 td {
     background-color: white;
 }
 </style>
 <!--padding: 5px;-->
 </head>
-<body>
+<body style="font-family: -apple-system, BlinkMacSystemFont, sans-serif;">
     <h1 style="color: #3C1A5B;">PearPlanner</h1>
     <table style="width:100%; border-collapse: collapse; border: 0px solid black;padding-top:0px;text-align:left;">
         <tr>
@@ -123,12 +127,53 @@ td {
                     </tr>
                 </table>
             </td>
-            <td>
-                <ul>
+            <td id="right-column-container">
+                <table id="right-column" style="width: 100%;">
+                  <tr>
+                    <td style="padding-bottom: 50px;">
+                      <h2 style="font-size: 2.2em; text-align: center;">To-Do</h2>
+                      <table id="to-do" style="border: 1px solid black;
+                       font-size: 1.2em;
+                       	box-shadow: 5px 5px 7px 0px #C4C4C4;
+                        width: 95%;">
+                        <th id="innerTD" style="border-collapse: collapse;">Assignment Name</th>
+                        <th id="innerTD" style="border-collapse: collapse;">Due Date</th>
+                        <th id="innerTD" style="border-collapse: collapse;">Priority</th>
+                        <tr>
+                          <td id="toDoTD">Oral Presentation</td>
+                          <td id="toDoTD">February 24th @ 11:59pm</td>
+                          <td id="toDoTD" style="color: red">High</td>
+                        </tr>
+                        <tr>
+                          <td id="toDoTD">Mastermind Project</td>
+                          <td id="toDoTD">February 26th @ 11:00pm</td>
+                          <td id="toDoTD" style="color: orange">Medium</td>
+                        </tr>
+                        <tr>
+                          <td id="toDoTD">Calc Midterm</td>
+                          <td id="toDoTD">March 1st @ 11:00pm</td>
+                          <td id="toDoTD" style="color: green">Low</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    <h2 style="font-size: 2.2em; text-align: center;">Quick Access</h2>
+                      <ul style="font-size: 2em;">
+                        <li><a href="#">COMS 101</a></li>
+                        <li><a href="#">CPE 357</a></li>
+                        <li><a href="#">MATH 241</a></li>
+                      </ul>
+                    </td>
+                  </tr>
+                  </tr>
+                </table>
+                <!-- <ul>
                     <li><h3>Homework 1</h3></li>
                     <li><h3>Lab 1</h3></li>
                     <li><h3>Test 1</h3></li>
-                </ul>
+                </ul> -->
             </td>
         </tr>
     </table>
