@@ -12,129 +12,219 @@ body {
 td {
     background-color: white;
 }
-<!--padding: 5px;-->
+.header{
+    width: 100%;
+    height: 200px;
+    display: block;
+    background-color: white;
+}
+.inner_header{
+    width: 85%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    background-color: white;
+    float: right;
+}
+.logo_container{
+    height: 100%;
+    width: 15%;
+    display: table;
+    float: left;
+}
+.logo_container .plus img{
+    display: block;
+    position: absolute;
+    left: 45px;
+    top: 70px;
+}
+
+.logo_container .circle img{
+    border-radius: 50%;
+    position: relative;
+    left: 45px;
+    top: 70px;
+}
+
+.inner_header h1{
+    color: #3C1A5B;
+}
+
+.inner_header ul{
+
+    display: inline-flex;
+    margin-left: 80px;
+    
+}
+.inner_header ul li{
+    list-style: none;
+    margin: 0 20px;
+    color: #3C1A5B;
+    cursor: pointer;
+}
+.inner_header .logo img{
+    height: 100%;
+    color: #3c1a5b;
+    display: table-cell;
+
+}
+
+.rotateimg240 {
+  -webkit-transform:rotate(240deg);
+  -moz-transform: rotate(240deg);
+  -ms-transform: rotate(240deg);
+  -o-transform: rotate(240deg);
+  transform: rotate(240deg);
+}
+
 </style>
 </head>
 <body>
-    <h1 style="color: #3C1A5B;">PearPlanner</h1>
-    <table style="width:100%; border-collapse: collapse; border: 0px solid black;padding-top:0px;text-align:left;">
-        <tr>
-            <th style="width:15%; background-color: #3C1A5B;"><h2>Tabs</h2></th>
-            <th style="width:70%; background-color:#ffffff;"><h2>Assignments Due Today</h2></th>
-            <th style="width:15%; background-color:#ffffff;"><h2>Schedule</h2></th>
-        </tr>
-        <tr>
-            <td style="background-color:  #3C1A5B;">
-                <ul style="">
-                    <li> Profile </li>
-                    <li> To Do List </li>
-                    <li> Calendar </li>
-                    <li> Files </li>
-                    <li> Settings </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li><h3>Homework 1</h3></li>
-                    <li><h3>Lab 1</h3></li>
-                    <li><h3>Test 1</h3></li>
-                </ul>
-            </td>
-            <td>
-                <table style="width:20%; border: 1px solid black; border-collapse: collapse; padding: 5px;">
-                    <tr> 
-                        <th> Time </th>
-                        <th> Event </th>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 8:00 am </td>
-                        <td id="innerTD" rowspan="2"> Workout </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 8:30 am </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 9:00 am </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 9:30 am </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 10:00 am </td>
-                        <td id="innerTD" rowspan="4"> CSC 308 </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 10:30 am </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 11:00 am </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 11:30 am </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 12:00 pm </td>
-                        <td id="innerTD"> Lunch </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 12:30 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 1:00 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 1:30 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 2:00 pm </td>
-                        <td id="innerTD" rowspan="6"> Homework </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 2:30 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 3:00 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 3:30 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 4:00 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 4:30 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 5:00 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 5:30 pm </td>
-                        <td id="innerTD"> Dinner </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 6:00 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 6:30 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 7:00 pm </td>
-                        <td id="innerTD" rowspan="2"> AGO Meeting </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 7:30 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 8:00 pm </td>
-                    </tr>
-                    <tr>
-                        <td id="innerTD"> 8:30 pm </td>
-                    </tr>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+        <header>
+            <div class="plus">
+                <img class="plusSign" src="images/plus.png" height="100" width="100">
+                <img class="purpleCircle" src="images/purpleCircle.png" height="100" width="100">
+            </div>
+
+            <div class="logo">
+                <img src="images/pear.png" class="rotateimg240" height="150" width="150">
+                <h1 class="text">earPlanner</h1>
+                <button class="newButton">New</button>
+            </div>
+                
+            <div class="sparkle1">
+                <img src="images/sparkle.png" height="70" width="40">
+            </div>
+
+            <div class="sparkle2">
+                <img src="images/sparkle.png" class="rotateimg180" height="70" width="40">
+            </div>
+
+            <div class="bell">
+                <img src="images/bell.png" class="rotateimg330" height="70" width="70">
+            </div>
+
+        </header>
+        <h1 style="color: #3C1A5B;">PearPlanner</h1>
+        <table style="width:100%; border-collapse: collapse; border: 0px solid black;padding-top:0px;text-align:left;">
+            <tr>
+                <th style="width:15%; background-color: #3C1A5B;"><h2>Tabs</h2></th>
+                <th style="width:70%; background-color:#ffffff;"><h2>Assignments Due Today</h2></th>
+                <th style="width:15%; background-color:#ffffff;"><h2>Schedule</h2></th>
+            </tr>
+            <tr>
+                <td style="background-color:  #3C1A5B;">
+                    <ul style="">
+                        <li> Profile </li>
+                        <li> To Do List </li>
+                        <li> Calendar </li>
+                        <li> Files </li>
+                        <li> Settings </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li><h3>Homework 1</h3></li>
+                        <li><h3>Lab 1</h3></li>
+                        <li><h3>Test 1</h3></li>
+                    </ul>
+                </td>
+                <td>
+                    <table style="width:20%; border: 1px solid black; border-collapse: collapse; padding: 5px;">
+                        <tr> 
+                            <th> Time </th>
+                            <th> Event </th>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 8:00 am </td>
+                            <td id="innerTD" rowspan="2"> Workout </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 8:30 am </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 9:00 am </td>              
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 9:30 am </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 10:00 am </td>
+                            <td id="innerTD" rowspan="4"> CSC 308 </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 10:30 am </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 11:00 am </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 11:30 am </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 12:00 pm </td>
+                            <td id="innerTD"> Lunch </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 12:30 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 1:00 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 1:30 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 2:00 pm </td>
+                            <td id="innerTD" rowspan="6"> Homework </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 2:30 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 3:00 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 3:30 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 4:00 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 4:30 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 5:00 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 5:30 pm </td>
+                            <td id="innerTD"> Dinner </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 6:00 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 6:30 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 7:00 pm </td>
+                            <td id="innerTD" rowspan="2"> AGO Meeting </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 7:30 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 8:00 pm </td>
+                        </tr>
+                        <tr>
+                            <td id="innerTD"> 8:30 pm </td>
+                        </tr>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
 </table>
 
 <script>
@@ -144,8 +234,8 @@ for (; i < 99999; i++) {
 
 }
 
-alert("You have a class in 10 minutes!");
-'a
+ 
+
 
 </script>
 
