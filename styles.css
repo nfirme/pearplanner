@@ -1,0 +1,60 @@
+.fluid-container{
+    display: block;
+}
+.navbar{
+    display: flex;
+    align-items: baseline;
+}
+
+.navbar a img{
+    margin-left: 25px; 
+    margin-right: 10px;
+}
+
+.navbar ul{
+    flex: 1;
+}
+
+.navbar ul li{
+   margin: 10px;
+}
+
+.navbar ul li a{
+    margin: 10px;
+ }
+
+.row{
+    display: flex;
+}
+
+.fluid-container div ul{
+    background-color: darkgray; 
+}
+
+.fluid-container div ul li{
+    min-height: 50px;
+    align-content: space-around;
+}
+
+.footer{
+    padding: 30px;
+    background-color: slategray;
+    display: flex;
+}
+
+.footer div{
+    justify-content: flex-end;
+}
+
+.footer p{
+    flex:1;
+}
+
+.footer ul li{
+    background-color: slategray;
+}
+
+.footer ul li a{
+    color: lightgreen;
+}
+
