@@ -1,54 +1,49 @@
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
 
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    /* themeSystem: 'bootstrap', */
+$(document).ready(function() {
+  $("#calendar").fullCalendar({
+    header: {
+      left: "prev,next today",
+      center: "title",
+      right: "month,agendaWeek,agendaDay"
+    },
+    defaultView: "month",
+    navLinks: true, // can click day/week names to navigate views
+    selectable: true,
+    selectHelper: true,
     editable: true,
-    durationEditable: true,
-    height: 800,
-    initialView: 'dayGridMonth',
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth,timeGridWeek,timeGridDay'
-    },
-    footerToolbar: {
-      right: 'addEventButton'
-    },
-    customButtons: {
-      addEventButton: {
-        text: 'add event',
-        click: function() {
-          var dateStr = prompt('Enter a date in YYYY-MM-DD format');
-          var date = new Date(dateStr + 'T00:00:00'); // will be in local time
-          var name = prompt('Enter event title');
+    eventLimit: true, // allow "more" link when too many events
 
-          if (!isNaN(date.valueOf())) { // valid?
-            calendar.addEvent({
-              title: name,
-              start: date,
-              allDay: true
-            })
-            alert('Great. Now, update your database...');
-          } else {
-            alert('Invalid date.');
-          }
-        }
+    select: function(start, end) {
+      var title = prompt("Event Content:");
+      var eventData;
+      if (title) {
+        eventData = {
+          title: title,
+          start: start,
+          end: end
+        };
+        $("#calendar").fullCalendar("renderEvent", eventData, true); // stick? = true
       }
+      $("#calendar").fullCalendar("unselect");
     },
-    events: [
-      
-      {
-        title: 'Click for Google',
-        url: 'http://google.com/',
-        start: '2020-10-28'
-      }
-    ]
+
+    eventRender: function(event, element) {
+      element
+        .find(".fc-content")
+        .prepend("<span class='closeon material-icons'>&#xe5cd;</span>");
+      element.find(".closeon").on("click", function() {
+        $("#calendar").fullCalendar("removeEvents", event._id);
+      });
+    },
+
+    eventClick: function(calEvent) {
+      var title = prompt("Edit Event Content:", calEvent.title);
+      calEvent.title = title;
+      $("#calendar").fullCalendar("updateEvent", calEvent);
+    }
   });
-
-  calendar.render();
-});
+}); 
 
  

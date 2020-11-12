@@ -10,28 +10,21 @@
     </title>
     <link rel="icon" href="images/pear_noColor.svg" type = "image/x-icon">
 
-    <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="pear.js"></script> 
-
-    <!-- Fontawesome -->
-    <script src="https://kit.fontawesome.com/a721ff89a0.js" crossorigin="anonymous"></script>
-
-    <!-- Latest compiled and minified CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- FullCalendarJS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.js"></script>
-
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="pear.js"></script>
 </head>
 <body>
     
@@ -71,15 +64,15 @@
         <div class="fluid-container">
             <div class="row">
                 <div class="col-lg-1 border-right">
-                    <a class="navbar-brand" href="#">
+                    <!-- <a class="navbar-brand" href="#">
                         <img src="images/pear_noColor.svg" alt="logo">
-                    </a>
-                    <ul class="nav nav-pills flex-column" style="min-height: 800px" role="tablist">
-                        <!-- <li class="nav-item">
-                            <a class="navbar-brand" href="#">
-                                <img src="images/pear_noColor.svg" alt="logo" style="width:40px; margin-left: 20px; margin-right: 10px; margin-bottom: 20px; margin-top: 20px">
+                    </a> -->
+                    <ul class="nav nav-pills flex-column" style="min-height: 800px; position: fixed" role="tablist">
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="landingPage.html">
+                                <img src="images/pear_noColor.svg" alt="logo" style="width:40px; margin-left: 20px; margin-right: 10px; margin-bottom: 20px; margin-top: 0px">
                             </a>
-                        </li> -->
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="pill" href="#Classes">
                                 <svg width="3em" height="4em" viewBox="0 0 16 16" class="bi bi-book" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -126,7 +119,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-11">
+                <div class="col-lg-11" style="min-height: 800px;">
                     <div class="tab-content flex-column">
                         <div id="Classes" class="container tab-pane active"><br>
                             <h3>Classes</h3>
@@ -156,7 +149,7 @@
             </div>
         </div>
     
-        <div class="footer">
+        <!-- <div class="footer">
             <p class="pull-right">© PearPlanner 2020</p>
             <div>
                 <ul class="list-group list-group-horizontal list-group-flush">
@@ -174,7 +167,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
 </body>
 </html>
