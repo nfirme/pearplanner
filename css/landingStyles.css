@@ -65,11 +65,12 @@ body {
     border-radius: 4px;
     margin-right: 0.25rem;
     margin-left: 0.25rem;
-    background-color: transparent;         
+    background-color: transparent;
+    text-align: center;         
     height: 30px; 
-    width: 70px; 
+    width: 75px; 
     color: #333; 
-    font-size: 1.0em; 
+    font-size: 0.8em; 
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6); 
 }
 
