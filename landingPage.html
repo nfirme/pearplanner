@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="landingStyles.css">
+    <link rel="stylesheet" href="css/landingStyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>
             Welcome
     </title>
@@ -16,14 +16,16 @@
     <header class="showcase">
         
         <div class="content">
-            <img src="images/pear-half-outline-white.svg" class="logo" alt="Pear Planner">
+            <img src="images/pear-half-outline.svg" class="logo" alt="Pear Planner">
             <div class="title">
                 Welcome to Pear Planner
             </div>
             <div class="text">
                 Planning made simple.
             </div>
-            <button type="button" class="btn" type="login">login</button>
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">
+                Login
+            </button>
             <button type="button" class="btn" type="sign up">sign up</button>
         </div>
     </header>
@@ -62,8 +64,44 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <form class="form-signin">
+                    <img class="mb-3" src="./images/pear-half-outline.svg" alt="" width="100" height="100">
+                    <h1 class="h3 mb-3 font-weight-normal">Login to PearPlanner</h1>
+                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+                    <div class="checkbox mb-3 mt-3">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-dark btn-block" type="submit">Sign in</button>
+                    <!-- <p class="mt-3 mb-3 text-muted">© 2020</p> -->
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
     <footer class="center bg-dark">
         <p>PearPlanner &copy; 2020</p>
     </footer>
+
+    <!-- Required JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
 </body>
 </html>
