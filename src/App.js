@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-// import './App.css';
+import React from 'react'
+import CourseCard from './components/CourseCard'
 
 function App() {
   return (
@@ -230,7 +230,6 @@ function App() {
     </div>
   </div>
 </>
-
     
   );
 }
