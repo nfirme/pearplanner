@@ -42,10 +42,20 @@ const courseList = courses.map((c) =>
     />
 );
 
+function callAPI() {
+    console.log("Hello world");
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
+    const targetUrl = 'https://canvas.calpoly.edu/api/v1/courses.json?access_token=15279~bUAbbgLyyiQapBK61lP8Lhz8RpoSgRLx2QajYKb8xtt44BsvONMsXxRmljb8Ds6Q'
+    fetch(proxyUrl + targetUrl)
+    .then(response => response.json())
+    .then(json => console.log(json));
+}
+
 function App() {
     return (
         <div className="App">
             {courseList}
+            <button onClick={callAPI}>Call API</button>
         </div>
     );
 }
