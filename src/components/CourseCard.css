@@ -1,0 +1,8 @@
+.course-card:hover {
+    background-color: #343a40;
+    color: white;
+}
+
+.card-header {
+    width: 15%;
+}
