@@ -20,12 +20,13 @@ class App extends React.Component {
             let response = await fetch(proxyUrl + targetUrl)
             if (response.ok) {
                 var json = await response.json();
+                console.log(json);
                 for (var i = 0; i < json.length; i++) {
                     json[i].courseColor = courseColors[i % courseColors.length]
                     var n = json[i].name.split("-")
-                    var endOfCode = n.length
                     json[i].courseName = n[n.length - 1]
-                    json[i].courseTitle = n.slice(0, n.length - 1).join(" ")
+                    n = json[i].name.split(/[\s-]/)
+                    json[i].courseTitle = n.slice(0, 2).join(" ")
 
                 }
                 const res = json.map((c) =>
