@@ -34,3 +34,10 @@
   min-height: 70px;
   align-content: space-around;
 }
+
+.loadingGif {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
