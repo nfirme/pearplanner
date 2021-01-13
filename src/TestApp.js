@@ -5,7 +5,7 @@ const courseColors = ["red", "orange", "yellow", "green", "blue", "purple"]
 
 class App extends React.Component {
     state = {
-        courseList: <h3>Loading your class data...</h3>
+        courseList: <LoadingGif />
     }
 
     componentDidMount() {
