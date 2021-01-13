@@ -40,6 +40,7 @@ class App extends React.Component {
                         col = courseColors[colorIterator % courseColors.length]
                         colorIterator++
                         return <CourseCard 
+                        key={c.id}
                         courseCode={c.courseName} 
                         courseTitle={c.courseTitle}
                         courseColor={col}
