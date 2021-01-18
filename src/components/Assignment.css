@@ -1,0 +1,15 @@
+.to-do-card:hover {
+    background-color: lightgray;
+}
+
+.complete {
+    text-decoration: line-through;
+}
+
+.color-block {
+    padding: 1.5rem;
+}
+
+.text-block {
+    padding: 1rem 0.5rem;
+}
