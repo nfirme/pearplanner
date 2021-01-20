@@ -6,8 +6,13 @@ function Assignment(props) {
     const [complete, setComplete] = useState(props.complete);
     let titleClass = complete ? "mb-0 complete" : "mb-0";
 
+    function handleClick() {
+        setComplete(!complete);
+        props.onChange(props.id);
+    }
+
     return (
-        <div className="card flex-row flex-wrap to-do-card" onClick={() => setComplete(!complete)}>
+        <div className="card flex-row flex-wrap to-do-card" onClick={handleClick} id={props.id}>
             <div className="color-block" style={{backgroundColor: "var(--" + props.courseColor + ")"}}>
             </div>
             <div className="text-block">
@@ -16,11 +21,6 @@ function Assignment(props) {
             </div>
       </div>
     )
-}
-
-Assignment.defaultProps = {
-    courseColor: "green",
-    courseCode: "CSC 308"
 }
 
 export default Assignment;
