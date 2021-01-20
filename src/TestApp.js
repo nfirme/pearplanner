@@ -1,12 +1,14 @@
 import React from 'react'
 import CourseCard from './components/CourseCard'
 import LoadingGif from './components/LoadingGif'
+import NavBar from './components/NavBar'
 
-const courseColors = ["red", "orange", "yellow", "green", "blue", "purple"]
+const courseColors = ["red", "orange", "yellow", "blue", "purple"]
 
 class App extends React.Component {
     state = {
-        courseList: <LoadingGif />
+        courseList: <LoadingGif />,
+        navBar: <NavBar />
     }
 
     componentDidMount() {
@@ -62,7 +64,14 @@ class App extends React.Component {
     render () {
         return (
             <>
-            <div className="App">
+            <div className="App" style={{backgroundColor: 'whitesmoke'}}>
+            {this.state.navBar}
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             {this.state.courseList}
             </div>
             </>
