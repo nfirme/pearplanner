@@ -3,6 +3,11 @@
     color: white;
 }
 
+.course-card {
+    margin-left: 75px;
+}
+
 .card-header {
     width: 15%;
+    
 }
