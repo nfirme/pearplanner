@@ -1,5 +1,7 @@
 import React from 'react'
 import CourseCard from './components/CourseCard'
+import EventCalendar from './components/EventCalendar'
+
 
 function App() {
   return (
@@ -212,9 +214,9 @@ function App() {
             </div>
           </div>
           {/* Calendar Page */}
-          <div id="Scheduler" className="container tab-pane fade"><br />
-            <div id="calendar" />
-          </div>
+          <div id="Scheduler" className="container tab-pane fade">
+            <EventCalendar/>
+          </div>  
           {/* Contacts Page */}
           <div id="Contacts" className="container tab-pane fade"><br />
             {/* <h3>Contacts</h3>
