@@ -1,5 +1,4 @@
 import React from 'react'
-import './CourseCardDropdown.css'
 
 function CourseCardDropdown(props) {
 
@@ -16,7 +15,7 @@ function CourseCardDropdown(props) {
     );
 
     return (
-        <div className="collapse course-card-dropdown" id={props.id}>
+        <div className="collapse" id={props.id}>
             <div className="card card-body">
                 <h4>Resources</h4>
                 <ul>{listItems}</ul>
