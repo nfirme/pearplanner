@@ -1,5 +1,4 @@
 import React from 'react'
-import './NavBar.css'
 
 function NavItem(props) {
 
@@ -9,8 +8,8 @@ function NavItem(props) {
 
     return (
 
-        <a className={props.active} data-toggle="pill" href={props.link} class="text-success">
-            <svg width="3em" height="4em" viewBox="0 0 16 16" className={props.name} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <a className={props.active} data-toggle="pill" href={props.link}>
+            <svg width="4em" height="4em" viewBox="0 0 16 16" className={props.name} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 {pix}
             </svg>
         </a>
