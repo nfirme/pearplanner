@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Assignment from './Assignment'
+import './AssignmentList.css'
 
 const toDoList = [
   {
@@ -47,8 +48,8 @@ function AssignmentList() {
     }
 
     return (
-      <div>
-        <h1>Assignments</h1>
+      <div className="AssignmentList">
+        <h2>Assignments</h2>
         <div className="assignment-section">
           {list.filter(x => !x.complete).map(todo =>
             <Assignment 
@@ -63,7 +64,7 @@ function AssignmentList() {
           )}
         </div>
 
-        <h1>Completed</h1>
+        <h2>Completed</h2>
         {list.filter(x => x.complete).map(todo =>
           <Assignment 
             task={todo.task}
