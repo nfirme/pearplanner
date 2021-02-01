@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import AssignmentList from './components/AssignmentList'
 import NavBar from './components/NavBar'
 import CourseList from './components/CourseList'
+import EventCalendar from './components/EventCalendar'
 import './App.css'
 
 function Home() {
@@ -28,6 +29,9 @@ function App() {
                     </Route>
                     <Route path="/page">
                         <Page />
+                    </Route>
+                    <Route path="/calendar">
+                        <EventCalendar />
                     </Route>
                     <Route path="/">
                         <Home />
