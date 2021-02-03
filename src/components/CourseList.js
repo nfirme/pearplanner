@@ -1,6 +1,7 @@
 import React from 'react'
 import CourseCard from './CourseCard'
 import LoadingGif from './LoadingGif'
+import './CourseList.css'
 
 const courseColors = ["red", "orange", "yellow", "blue", "purple"]
 

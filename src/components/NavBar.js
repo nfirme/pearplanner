@@ -8,6 +8,7 @@ function NavBar(props) {
     return (
 
         <div className="NavBar">
+            <div className="Border"/>
             <ul className="nav nav-pills flex-column" role="tablist"> 
                 <a href="/"><li className="logo">
                     <img className="logo" src={logo}></img>

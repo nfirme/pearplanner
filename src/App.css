@@ -5,6 +5,10 @@
 }
 
 .main {
-    margin-left: 16px;
-    width: 70%;
+    width: 90%;
+    margin-left: 10%;
+    height: 1000px;
+    background-color: whitesmoke;
+    
+    
 }

@@ -1,14 +1,21 @@
 .NavBar {
-  width: 7%;
+  width: 10%;
   background-color: whitesmoke;
+  border-right: 2px solid lightslategray ;
+  border-right-style: hidden;
+  height: 1000px;
+  margin-block-end: 0px;
+  position: fixed;
 }
+
 
 li {
   margin: 10px auto;
 }
 
 .logo {
-  width: 100%;
+  width: 80%;
+  margin-left: 10%; 
 }
 
 .logo:hover {
