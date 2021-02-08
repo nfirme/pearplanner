@@ -1,6 +1,7 @@
 import React from 'react'
 import './CourseCard.css'
 import CourseCardDropdown from './CourseCardDropdown'
+import PropTypes from 'prop-types'
 
 function CourseCard(props) {
 
@@ -21,6 +22,12 @@ function CourseCard(props) {
         </div>
 
     )
+}
+
+CourseCard.propTypes = {
+    courseCode: PropTypes.string,
+    courseTitle: PropTypes.string,
+    courseColor: PropTypes.string
 }
 
 export default CourseCard;
