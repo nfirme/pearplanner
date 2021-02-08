@@ -1,4 +1,6 @@
+/* eslint react/jsx-key: 0 */
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function NavItem(props) {
 
@@ -16,5 +18,12 @@ function NavItem(props) {
 
     )
 }
+
+NavItem.propTypes = {
+    active: PropTypes.string,
+    link: PropTypes.string,
+    name: PropTypes.string,
+    d: PropTypes.array
+  }
 
 export default NavItem;
