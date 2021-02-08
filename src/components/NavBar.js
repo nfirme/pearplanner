@@ -3,7 +3,7 @@ import './NavBar.css'
 import NavItem from './NavItem'
 import logo from './logo.png'
 
-function NavBar(props) {
+function NavBar() {
 
     return (
 
