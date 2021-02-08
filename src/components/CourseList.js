@@ -67,7 +67,7 @@ class CourseList extends React.Component {
             {this.state.courseList}
             </div>
         )
-    };
+    }
 }
 
 export default CourseList;
