@@ -1,4 +1,6 @@
+/* eslint react/jsx-key: 0 */
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function CourseCardDropdown(props) {
 
@@ -22,6 +24,10 @@ function CourseCardDropdown(props) {
             </div>
         </div>
     );
+}
+
+CourseCardDropdown.propTypes = {
+    id: PropTypes.number
 }
 
 export default CourseCardDropdown;
