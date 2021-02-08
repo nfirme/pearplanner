@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './Assignment.css'
+import PropTypes from 'prop-types'
 
 function Assignment(props) {
 
@@ -16,11 +17,20 @@ function Assignment(props) {
             <div className="color-block" style={{backgroundColor: "var(--" + props.courseColor + ")"}}>
             </div>
             <div className="text-block">
-                <h4 className={titleClass}>{props.task}</h4>
-                <p className="card-text">{props.courseCode}</p>
+                <h4 className={titleClass}>{props.assignmentName}</h4>
+                <p className="card-text">{props.courseName}</p>
             </div>
       </div>
     )
 }
+
+Assignment.propTypes = {
+    assignmentName: PropTypes.string,
+    courseName: PropTypes.string,
+    courseColor: PropTypes.string,
+    complete: PropTypes.bool,
+    id: PropTypes.number,
+    onChange: PropTypes.func
+  }
 
 export default Assignment;
