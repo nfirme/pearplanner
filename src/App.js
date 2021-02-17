@@ -39,7 +39,7 @@ function App() {
                 </Switch>
             </div>
             <div className="footer">
-                <button type="button" onClick="../public/landingpage.html" className="active">Sign Out</button>
+                <a type="button" href="../public/landingpage.html" className="active">Sign Out</a>
             </div>
         </div>
         </Router>
