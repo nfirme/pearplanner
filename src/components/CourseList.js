@@ -16,7 +16,7 @@ class CourseList extends React.Component {
     }
 
     callAPI = async() => {
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
+        const proxyUrl = 'https://cors.bridged.cc/'
         const targetUrl = 'https://canvas.calpoly.edu/api/v1/courses.json?access_token=15279~bUAbbgLyyiQapBK61lP8Lhz8RpoSgRLx2QajYKb8xtt44BsvONMsXxRmljb8Ds6Q'
         try {
             let response = await fetch(proxyUrl + targetUrl)
