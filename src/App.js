@@ -4,6 +4,7 @@ import AssignmentList from './components/AssignmentList'
 import NavBar from './components/NavBar'
 import CourseList from './components/CourseList'
 import EventCalendar from './components/EventCalendar'
+import Footer from './components/Footer'
 import './App.css'
 
 function Home() {
@@ -38,9 +39,7 @@ function App() {
                     </Route> 
                 </Switch>
             </div>
-            <div className="footer">
-                <a type="button" href="../public/landingpage.html" className="active">Sign Out</a>
-            </div>
+            <Footer />
         </div>
         </Router>
     )

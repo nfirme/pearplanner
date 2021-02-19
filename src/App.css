@@ -11,26 +11,3 @@
     background-color: whitesmoke;
 }
 
-.footer {
-    width: 90%;
-    height: 10%;
-    margin-left: 10%;
-    overflow: hidden;
-    position: fixed;
-    z-index: 1;
-    bottom: 0;
-    background-color: whitesmoke;
-}
-
-.footer a {
-    float: right;
-    border-radius: 8px;
-    margin-right: 40px;
-    display: block;
-    color: whitesmoke;
-    font-size: 14px;
-    padding: 5px 20px;
-    text-align: center;
-    border: 2px solid;
-    border-color: slategray;
-}
