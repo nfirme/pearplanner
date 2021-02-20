@@ -4,4 +4,9 @@
 
 .card-header {
     width: 15%;
+    border-radius: 12px;
+}
+
+.card-block stretched-link text-decoration-none {
+    border-radius: 12 px;
 }

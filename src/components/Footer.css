@@ -14,10 +14,10 @@
     border-radius: 8px;
     margin-right: 40px;
     display: block;
-    color: whitesmoke;
+    color: slategray;
     font-size: 14px;
     padding: 5px 20px;
     text-align: center;
     border: 2px solid;
-    border-color: slategray;
+    border-color: black;
 }

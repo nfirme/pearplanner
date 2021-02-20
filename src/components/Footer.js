@@ -1,11 +1,12 @@
 import React from 'react'
 import './Footer.css'
+import {Link} from "react-router-dom"
 
 function Footer() {
 
     return (
         <div className="footer">
-            <a type="button" href="../public/landingpage.html" className="active">Sign Out</a>
+            <Link to={"/landingPage"}>Sign Out</Link>
         </div>
     )
 }

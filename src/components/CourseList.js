@@ -63,7 +63,7 @@ class CourseList extends React.Component {
     render () {
         return (
             <div className="CourseList">
-            <h2>My Classes</h2>
+            <h2 style={{textAlign: "center"}}>My Classes</h2>
             {this.state.courseList}
             </div>
         )
