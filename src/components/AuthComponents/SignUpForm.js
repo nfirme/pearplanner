@@ -25,7 +25,7 @@ function SignUpForm() {
         firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(() => {
             console.log("Successfully signed up user.");
-            history.push('/');
+            history.push('/app');
         })
         .catch((error) => {
             console.log(error.code);

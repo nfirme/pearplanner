@@ -2,6 +2,8 @@ import React from 'react'
 import './LandingStyles.css'
 import pearImageWhite from '../images/pear-half-outline-white.svg';
 import pearImageBlack from '../images/pear-half-outline.svg';
+import LoginModal from './AuthComponents/LoginModal'
+import SignUpModal from './AuthComponents/SignUpModal'
 
 function LandingPage() {
     return (
@@ -28,12 +30,14 @@ function LandingPage() {
             <div className="text" style={{color: 'white'}}>
                 Planning made simple.
             </div>
-            <button type="button" className="landing-btn" data-toggle="modal" data-target="#modalLogin">
+            {/* <button type="button" className="landing-btn" data-toggle="modal" data-target="#modalLogin">
                 Login
             </button>
             <button type="button" className="landing-btn" data-toggle="modal" data-target="#modalRegister">
                 Sign Up
-            </button>
+            </button> */}
+            <LoginModal />
+            <SignUpModal />
             </div>
         </header>
         <section className="services bg-dark">
@@ -71,8 +75,8 @@ function LandingPage() {
             </div>
             </div>
         </section>
-        {/* Modal */}
-        <div className="modal fade" id="modalLogin" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+        {/* <div className="modal fade" id="modalLogin" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
                 <div className="modal-body text-center">
@@ -96,8 +100,8 @@ function LandingPage() {
                 </div>
             </div>
             </div>
-        </div>
-        {/* Modal */}
+        </div> */}
+
         <div className="modal fade" id="modalRegister" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
