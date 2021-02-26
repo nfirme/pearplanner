@@ -1,9 +1,9 @@
-body {
+/* body {
     background: rgba(0, 0, 0, 0.9);
     margin: 0;
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
+} */
 
 .showcase::after {
     content: '';

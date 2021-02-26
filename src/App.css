@@ -1,15 +1,18 @@
 .App {
-    display: flex;
-    flex-direction: row;
+    background-color: whitesmoke;
     height: 100vh;
 }
 
 .main {
     width: 90%;
     margin-left: 10%;
-    height: 1000px;
     background-color: whitesmoke;
     color: black;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif 
+}
+
+.main-wrapper {
+    display: flex;
+    flex-direction: row;
+    background-color: whitesmoke;
 }
 

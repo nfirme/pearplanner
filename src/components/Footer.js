@@ -6,7 +6,7 @@ function Footer() {
 
     return (
         <div className="footer">
-            <Link to={"/landingPage"}>Sign Out</Link>
+            <Link to={"/"}>Sign Out</Link>
         </div>
     )
 }
