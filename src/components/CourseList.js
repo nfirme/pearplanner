@@ -2,6 +2,7 @@ import React from 'react'
 import CourseCard from './CourseCard'
 import LoadingGif from './LoadingGif'
 import './CourseList.css'
+import NewCourseModal from './FormComponents/NewCourseModal'
 
 const courseColors = ["red", "orange", "yellow", "blue", "purple"]
 
@@ -64,6 +65,7 @@ class CourseList extends React.Component {
         return (
             <div className="CourseList">
             <h2 style={{textAlign: "center"}}>My Classes</h2>
+            <NewCourseModal />
             {this.state.courseList}
             </div>
         )
