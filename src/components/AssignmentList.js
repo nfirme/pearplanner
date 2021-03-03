@@ -1,14 +1,19 @@
 import React from 'react'
 import Assignment from './Assignment'
+import LoadingGif from './LoadingGif';
 import './AssignmentList.css'
-/*import LoadingGif from './LoadingGif';*/
 
 const courseColors = ["red", "orange", "yellow", "blue", "purple"]
+const token = '15279~bUAbbgLyyiQapBK61lP8Lhz8RpoSgRLx2QajYKb8xtt44BsvONMsXxRmljb8Ds6Q'
 
 class AssignmentList extends React.Component {
 
-  state = {
-    assignmentList: [],
+  constructor(props) {
+    super(props)
+    this.handleChange = this.handleChange.bind(this)
+    this.state = {
+      assignmentList: [<LoadingGif key="0"/>],
+    }
   }
 
   componentDidMount() {
@@ -17,7 +22,8 @@ class AssignmentList extends React.Component {
   }
 
   stringToDate = (due) => {
-      if (due == "") {
+      //parses date string of form 2021-01-08T07:59:59Z
+      if (due == null) {
         return new Date(3000, 0, 0, 0, 0, 0)
       }
       due = due.split("-")
@@ -30,14 +36,15 @@ class AssignmentList extends React.Component {
       for (var i = 0; i < 6; i++) {
           due[i] = parseInt(due[i])
       }
+      //In this date function, January is month 00, Feb 01, etc.
       return new Date(due[0], due[1] - 1, due[2], due[3], due[4], due[5])
   }
     
   callAPIAssignments = async(course) => {
-      const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
+      const proxyUrl = 'https://cors.bridged.cc/'
       const targetUrl = 'https://canvas.calpoly.edu/api/v1/courses/'
       try {
-          let response = await fetch(proxyUrl + targetUrl + course.id + '/assignments/?access_token=' + '15279~bUAbbgLyyiQapBK61lP8Lhz8RpoSgRLx2QajYKb8xtt44BsvONMsXxRmljb8Ds6Q')
+          let response = await fetch(proxyUrl + targetUrl + course.id + '/assignments/?access_token=' + token + '&per_page=999')
           if (response.ok) {
               var json = await response.json();
               for (var i = 0; i < json.length; i++) {
@@ -45,7 +52,6 @@ class AssignmentList extends React.Component {
                 json[i]["course_id"] = course["courseTitle"]
                 json[i]["color"] = course["color"]
               }
-              console.log("One course")
               return json
           }
           else {
@@ -58,39 +64,50 @@ class AssignmentList extends React.Component {
           return []
       }
   }
-    
+
+  getCurrentTerm(json) {
+    var n = []
+    var currentTerm = 0
+    for (var i = 0; i < json.length; i++) {
+      if (json[i].enrollment_term_id > currentTerm) {
+        currentTerm = json[i].enrollment_term_id
+      }
+      if (json[i].name == null) {
+        json[i].name = ""
+      }
+      n = json[i].name.split("-")
+      json[i].courseName = n[n.length - 1]
+      n = json[i].name.split(/[\s-]/)
+      json[i].courseTitle = n.slice(0, 2).join(" ")
+    }
+    return currentTerm
+  }
+
+  async getFinalList(json, currentTerm) {
+    var res = []
+    var colorIterator = 0
+    for (var i = 0; i < json.length; i++) {
+      if (json[i].enrollment_term_id == currentTerm) {
+        json[i].color = courseColors[colorIterator]
+        res = res.concat(await this.callAPIAssignments(json[i]))
+        colorIterator++
+      }
+    }
+    return res
+  }
+
   callAPICourses = async() => {
-      const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-      const targetUrl = 'https://canvas.calpoly.edu/api/v1/courses.json?access_token=' + '15279~bUAbbgLyyiQapBK61lP8Lhz8RpoSgRLx2QajYKb8xtt44BsvONMsXxRmljb8Ds6Q'
+      const proxyUrl = 'https://cors.bridged.cc/'
+      const targetUrl = 'https://canvas.calpoly.edu/api/v1/courses.json?access_token=' + token
       try {
           let response = await fetch(proxyUrl + targetUrl)
           if (response.ok) {
-              var n = []
-              var colorIterator = 0
-              var currentTerm = 0
-              var res = []
               var json = await response.json()
-              for (var i = 0; i < json.length; i++) {
-                if (json[i].enrollment_term_id > currentTerm) {
-                    currentTerm = json[i].enrollment_term_id
-                }
-                n = json[i].name.split("-")
-                json[i].courseName = n[n.length - 1]
-                n = json[i].name.split(/[\s-]/)
-                json[i].courseTitle = n.slice(0, 2).join(" ")
-              }
-              for (i = 0; i < json.length; i++) { //json.length
-                if (json[i].enrollment_term_id == currentTerm) {
-                  json[i].color = courseColors[colorIterator]
-                  var temp = await this.callAPIAssignments(json[i])
-                  console.log("temp")
-                  console.log(temp)
-                  colorIterator++
-                  for (var j = 0; j < temp.length; j++) {
-                    res.push(temp[j])
-                  }
-                }
-              }
+              var currentTerm = this.getCurrentTerm(json)
+              var res = await this.getFinalList(json, currentTerm)
+              //remove assignments with due dates in the past
+              res = res.filter(function(a){return Number(a.due_at) > Number(new Date())});
+               //sort remaining by due date
               res.sort(function(a, b){return Number(a.due_at) - Number(b.due_at)});
               const fin = res.map((c) => {
                 return <Assignment 
@@ -116,11 +133,12 @@ class AssignmentList extends React.Component {
 
   AnyIncomplete() {
     var anyIncomplete = false
+    
     if (this.state.assignmentList.length == 0) {
       return <div></div>
     }
     this.state.assignmentList.forEach(a => {
-      anyIncomplete = anyIncomplete || !a.complete
+      anyIncomplete = anyIncomplete || !a.props.complete
     })
     if (anyIncomplete) {
       return <h2>Assignments</h2>
@@ -134,7 +152,7 @@ class AssignmentList extends React.Component {
       return <div></div>
     }
     this.state.assignmentList.forEach(a => {
-      anyCompleted = anyCompleted || a.complete
+      anyCompleted = anyCompleted || a.props.complete
     })
     if (anyCompleted) {
       return <h2>Completed</h2>
@@ -144,13 +162,20 @@ class AssignmentList extends React.Component {
 
   handleChange(childId) {
     if (childId != null) {
-      console.log(this)
-      this.complete = !(this.complete)
-      /*this.setState((state) => {
-        var list = state.assignmentList
-        const index = list.findIndex(x => x.id === childId);
-        list[index].complete = !(list[index].complete)
-        return {assignmentList: list}});*/
+      var list = this.state.assignmentList
+      const index = list.findIndex(x => x.key == childId);
+      var temp = list[index]
+      list[index] = <Assignment 
+        assignmentName={temp.props.assignmentName}
+        courseName={temp.props.courseName}
+        courseColor={temp.props.courseColor}
+        key={temp.props.id}
+        id={temp.props.id}
+        onChange={this.handleChange}
+        complete={!(temp.props.complete)}
+      />
+      //list.splice(index, 1)
+      this.setState(() => ({assignmentList: list}))
     }
   }
 
@@ -160,22 +185,11 @@ class AssignmentList extends React.Component {
         <div className="AssignmentList">
           {this.AnyIncomplete()}
           <div className="assignment-section">
-            {this.state.assignmentList.filter(x => !x.complete)}
-            {/*.map(todo =>
-              <Assignment 
-                assignmentName={todo.task}
-                complete={todo.complete}
-                courseName={todo.courseCode}
-                key={todo.id}
-                id={todo.id}
-                onChange={handleChange}
-                courseColor={todo.color}
-              />
-            )}*/}
+            {this.state.assignmentList.filter(x => !x.props.complete)}
           </div>
 
           {this.AnyCompleted()}
-          {this.state.assignmentList.filter(x => x.complete)}
+          {this.state.assignmentList.filter(x => x.props.complete)}
         </div>
       )
   }
