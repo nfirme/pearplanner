@@ -4,7 +4,7 @@ async function getCourses(token) {
 
     const proxyUrl = 'https://cors.bridged.cc/'
     const targetUrl = 'https://canvas.calpoly.edu/api/v1/courses.json?access_token='
-    const courseColors = ["red", "orange", "yellow", "blue", "purple"]
+    const courseColors = ["red", "orange", "yellow", "green", "blue", "purple"]
 
     try {
         let response = await fetch(proxyUrl + targetUrl + token)
@@ -27,15 +27,18 @@ async function getCourses(token) {
 
             const currentClasses = json.filter((c) => c.enrollment_term_id == currentTerm);
 
-            return  currentClasses.map((c) => {
+            const courses =  currentClasses.map((c) => {
                 col = courseColors[colorIterator % courseColors.length]
                 colorIterator++
                 return ({
+                    id: c.id,
                     courseTitle: c.courseTitle,
                     courseName: c.courseName,
                     color: col
                 })
             });
+
+            return courses;
         }
         else {
             console.log("ERROR IN RETRIEVING API DATA");
