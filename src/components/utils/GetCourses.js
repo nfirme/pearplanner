@@ -1,6 +1,8 @@
-// REturns an array of course objects
+import firebase from '../../firebase'
 
-async function getCourses(token) {
+// Fetches course data from Canvas, pushes to Firebase,
+// then returns the array of current course objects
+async function getCourses(token, uid) {
 
     const proxyUrl = 'https://cors.bridged.cc/'
     const targetUrl = 'https://canvas.calpoly.edu/api/v1/courses.json?access_token='
@@ -19,10 +21,13 @@ async function getCourses(token) {
                 if (json[i].enrollment_term_id > currentTerm) {
                     currentTerm = json[i].enrollment_term_id
                 }
-                n = json[i].name.split("-")
-                json[i].courseName = n[n.length - 1]
-                n = json[i].name.split(/[\s-]/)
-                json[i].courseTitle = n.slice(0, 2).join(" ")
+                if(json[i].name) {
+                    n = json[i].name.split("-")
+                    json[i].courseName = n[n.length - 1];
+                    json[i].courseName = json[i].courseName.substring(1);
+                    n = json[i].name.split(/[\s-]/)
+                    json[i].courseTitle = n.slice(0, 2).join(" ")
+                }
             }
 
             const currentClasses = json.filter((c) => c.enrollment_term_id == currentTerm);
@@ -37,6 +42,10 @@ async function getCourses(token) {
                     color: col
                 })
             });
+
+            courses.forEach(c => {
+                firebase.database().ref('users/' + uid + '/courses/' + c.id).set(c);
+            })
 
             return courses;
         }

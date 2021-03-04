@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import firebase from '../../firebase'
+import getCourses from '../utils/GetCourses';
 import UserContext from './UserContext'
 
 /* 
@@ -19,7 +20,7 @@ function UserAuth() {
           if (user) signInUser(user);
         });
         return () => unregisterAuthObserver();
-      }, [user, setUser]);
+      });
 
     return <></>;
 }
@@ -28,9 +29,11 @@ function UserAuth() {
 // If user exists, call updateExistingUser.
 // If new user, call setupNewUser.
 function signInUser(user) {
-  const userRef = firebase.database().ref('users/' + user.uid);
-  userRef.on('value', (snapshot) => {
+  const userRef = firebase.database().ref('users/' + user.uid)
+  userRef.get().then(snapshot => {
     snapshot.exists() ? updateExistingUser(user) : setupNewUser(user);
+  }).catch(error => {
+    console.error(error);
   });
 }
 
@@ -47,9 +50,9 @@ function setupNewUser(user) {
 
 // Do some stuff, like calling the Canvas API to get fresh data.
 function updateExistingUser(user) {
-  const userRef = firebase.database().ref('users/' + user.uid);
-  userRef.on('value', (snapshot) => {
-     console.log(snapshot.val().canvas_token);
+  const userRef = firebase.database().ref('users/' + user.uid + '/canvas_token');
+  userRef.get().then(snapshot => {
+    getCourses(snapshot.val(), user.uid)
   });
 }
 
