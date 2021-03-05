@@ -1,6 +1,7 @@
 /* eslint react/jsx-key: 0 */
 import React from 'react'
 import PropTypes from 'prop-types'
+import NewResourceModal from './FormComponents/NewResourceModal';
 
 function CourseCardDropdown(props) {
 
@@ -16,14 +17,17 @@ function CourseCardDropdown(props) {
       <li><a href="#">{resource}</a></li>
     );
 
+    
     return (
         <div className="collapse" id={props.id}>
             <div className="card card-body" style={{borderRadius: 12}}>
                 <h4 style={{textAlign: "center"}}>Resources</h4>
+                <NewResourceModal/>
                 <ul>{listItems}</ul>
             </div>
         </div>
     );
+    
 }
 
 CourseCardDropdown.propTypes = {
