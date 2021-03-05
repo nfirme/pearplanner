@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
-import NewResourceForm from './NewCourseForm'
+import NewResourceForm from './NewResourceForm'
 
 function NewResourceModal() {
     
@@ -11,7 +11,7 @@ function NewResourceModal() {
   
     return (
       <>
-        <Button onClick={handleShow}>
+        <Button style={{float: "right"}} onClick={handleShow}>
           Add resource
         </Button>
   

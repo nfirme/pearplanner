@@ -9,7 +9,7 @@ function CourseCard(props) {
 
     return (
         <div className="CourseCard">
-            <div className="card flex-row flex-wrap course-card" style={{borderRadius: 12, borderColor: "black"}}>
+            <div className="card flex-row flex-wrap course-card" style={{borderRadius: 16, marginTop: 2}}>
                 <a className="card-block stretched-link text-decoration-none" data-toggle="collapse" href={"#" + idStr}/>
                 <div className="card-header" style={{backgroundColor: "var(--" + props.courseColor + ")"}}/>
                 <div className="card-block px-2 py-3">

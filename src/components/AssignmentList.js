@@ -141,7 +141,7 @@ class AssignmentList extends React.Component {
       anyIncomplete = anyIncomplete || !a.props.complete
     })
     if (anyIncomplete) {
-      return <h2>Assignments</h2>
+      return <h2 style={{textAlign: "center"}}>Assignments</h2>
     }
     return <div></div>
   }

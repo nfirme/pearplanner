@@ -11,8 +11,8 @@ function NewCourseModal() {
   
     return (
       <>
-        <Button onClick={handleShow}>
-          Add course
+        <Button style={{borderRadius: 10, fontSize: 16, color: "blue" ,backgroundColor: "transparent"}} onClick={handleShow}>
+          New Class
         </Button>
   
         <Modal centered show={show} onHide={handleClose} size="lg">

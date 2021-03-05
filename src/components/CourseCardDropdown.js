@@ -20,7 +20,7 @@ function CourseCardDropdown(props) {
     
     return (
         <div className="collapse" id={props.id}>
-            <div className="card card-body" style={{borderRadius: 12}}>
+            <div className="card card-body" style={{borderRadius: 16, marginBottom: 10}}>
                 <h4 style={{textAlign: "center"}}>Resources</h4>
                 <NewResourceModal/>
                 <ul>{listItems}</ul>

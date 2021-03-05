@@ -13,8 +13,8 @@ function Assignment(props) {
     }
 
     return (
-        <div className="card flex-row flex-wrap to-do-card" onClick={handleClick} id={props.id}>
-            <div className="color-block" style={{backgroundColor: "var(--" + props.courseColor + ")"}}>
+        <div className="card flex-row flex-wrap to-do-card" onClick={handleClick} id={props.id} style={{borderRadius: 16, marginTop: 2}}>
+            <div className="color-block" style={{backgroundColor: "var(--" + props.courseColor + ")", borderRadius: 16}}>
             </div>
             <div className="text-block">
                 <h4 className={titleClass}>{props.assignmentName}</h4>
