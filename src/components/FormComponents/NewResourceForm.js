@@ -9,24 +9,24 @@ function NewResourceForm(props) {
 
     const { user } = useContext(UserContext);
 
-    const [field1, setField1] = useState("");
-    const [field2, setField2] = useState("");
-    const [field3, setField3] = useState("");
+    const [name, setName] = useState("");
+    const [link, setLink] = useState("");
 
     function validateForm() {
-        return field1.length > 0 && field2.length > 0 && field3.length > 0;
+        return name.length > 0 && link.length > 0;
     }
 
     async function handleSubmit(event) {
         event.preventDefault();
         if (user) {
-            const courseId = 0; // do something to generate custom course ID
-            const userRef = firebase.database().ref('users/' + user.uid + '/courses/' + courseId);
-            userRef.set({
-                setting1: field1,
-                setting2: field2,
-                setting3: field3
+            const courseId = props.courseId;
+            const listRef = firebase.database().ref('users/' + user.uid + '/courses/' + courseId + '/resources');
+            const newRef = listRef.push();
+            newRef.set({
+                name: name,
+                link: link
             })
+
         }
         props.closeModal();
     }
@@ -35,34 +35,25 @@ function NewResourceForm(props) {
         <div className="NewCourseForm">
         <Form onSubmit={handleSubmit}>
             <Form.Group size="lg" controlId="field1">
-                <Form.Label>Field 1</Form.Label>
+                <Form.Label>Resource name</Form.Label>
                 <Form.Control
                     autoFocus
                     type="text"
-                    value={field1}
-                    onChange={(e) => setField1(e.target.value)}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                 />
             </Form.Group>
             <Form.Group size="lg" controlId="field2">
-                <Form.Label>Field 2</Form.Label>
+                <Form.Label>Link to resource</Form.Label>
                 <Form.Control
                     autoFocus
                     type="text"
-                    value={field2}
-                    onChange={(e) => setField2(e.target.value)}
-                />
-            </Form.Group>
-            <Form.Group size="lg" controlId="field3">
-                <Form.Label>Field 3</Form.Label>
-                <Form.Control
-                    autoFocus
-                    type="text"
-                    value={field3}
-                    onChange={(e) => setField3(e.target.value)}
+                    value={link}
+                    onChange={(e) => setLink(e.target.value)}
                 />
             </Form.Group>
             <Button block size="lg" type="submit" disabled={!validateForm()}>
-            Login
+            Submit
             </Button>
         </Form>
         </div>
@@ -70,7 +61,8 @@ function NewResourceForm(props) {
 }
 
 NewResourceForm.propTypes = {
-    closeModal: PropTypes.func
+    closeModal: PropTypes.func,
+    courseId: PropTypes.string
 }
 
 export default NewResourceForm;

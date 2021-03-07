@@ -18,7 +18,7 @@ function CourseCard(props) {
                 </div>
             </div>
 
-            <CourseCardDropdown id={idStr} />
+            <CourseCardDropdown id={idStr} courseId={props.courseId} resources={props.resources} />
         </div>
 
     )
@@ -27,7 +27,9 @@ function CourseCard(props) {
 CourseCard.propTypes = {
     courseCode: PropTypes.string,
     courseTitle: PropTypes.string,
-    courseColor: PropTypes.string
+    courseColor: PropTypes.string,
+    courseId: PropTypes.string,
+    resources: PropTypes.array
 }
 
 export default CourseCard;

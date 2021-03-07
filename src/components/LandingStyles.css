@@ -5,6 +5,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 } */
 
+.showcase {
+    position: relative;
+}
+
 .showcase::after {
     content: '';
     height: 100vh;

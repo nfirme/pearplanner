@@ -20,7 +20,7 @@ function UserAuth() {
           if (user) signInUser(user);
         });
         return () => unregisterAuthObserver();
-      });
+      }, [user, setUser]);
 
     return <></>;
 }
@@ -41,19 +41,20 @@ function signInUser(user) {
 // in DATABASE to include the token.
 function setupNewUser(user) {
   const token = prompt("Please enter your Canvas token:");
-  const userRef = firebase.database().ref('users/' + user.uid)
+  let userRef = firebase.database().ref('users/' + user.uid)
   userRef.set({
     canvas_token: token,
     email: user.email
+  });
+  userRef = firebase.database().ref('users/' + user.uid + '/canvas_token');
+  userRef.get().then(snapshot => {
+    getCourses(snapshot.val(), user.uid)
   });
 }
 
 // Do some stuff, like calling the Canvas API to get fresh data.
 function updateExistingUser(user) {
-  const userRef = firebase.database().ref('users/' + user.uid + '/canvas_token');
-  userRef.get().then(snapshot => {
-    getCourses(snapshot.val(), user.uid)
-  });
+  console.log(user);
 }
 
 export default UserAuth;

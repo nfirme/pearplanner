@@ -20,12 +20,25 @@ function NewCourseForm(props) {
     async function handleSubmit(event) {
         event.preventDefault();
         if (user) {
-            const courseId = 0; // do something to generate custom course ID
-            const userRef = firebase.database().ref('users/' + user.uid + '/courses/' + courseId);
-            userRef.set({
-                setting1: field1,
-                setting2: field2,
-                setting3: field3
+            // const courseId = 3; // do something to generate custom course ID
+            // const userRef = firebase.database().ref('users/' + user.uid + '/courses/' + courseId);
+            // userRef.set({
+                // courseTitle: field1,
+                // courseName: field2,
+                // instructor: field3,
+                // color: "teal",
+                // custom: true
+            // })
+            const listRef = firebase.database().ref('users/' + user.uid + '/courses');
+            const newRef = listRef.push();
+            const key = newRef.key;
+            newRef.set({
+                courseTitle: field1,
+                courseName: field2,
+                instructor: field3,
+                color: "teal",
+                custom: true,
+                id: key
             })
         }
         props.closeModal();
@@ -35,7 +48,7 @@ function NewCourseForm(props) {
         <div className="NewCourseForm">
         <Form onSubmit={handleSubmit}>
             <Form.Group size="lg" controlId="field1">
-                <Form.Label>Field 1</Form.Label>
+                <Form.Label>Course code</Form.Label>
                 <Form.Control
                     autoFocus
                     type="text"
@@ -44,7 +57,7 @@ function NewCourseForm(props) {
                 />
             </Form.Group>
             <Form.Group size="lg" controlId="field2">
-                <Form.Label>Field 2</Form.Label>
+                <Form.Label>Course name</Form.Label>
                 <Form.Control
                     autoFocus
                     type="text"
@@ -53,7 +66,7 @@ function NewCourseForm(props) {
                 />
             </Form.Group>
             <Form.Group size="lg" controlId="field3">
-                <Form.Label>Field 3</Form.Label>
+                <Form.Label>Instructor</Form.Label>
                 <Form.Control
                     autoFocus
                     type="text"

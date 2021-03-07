@@ -1,7 +1,6 @@
 import React from 'react'
 import './LandingStyles.css'
 import pearImageWhite from '../images/pear-half-outline-white.svg';
-import pearImageBlack from '../images/pear-half-outline.svg';
 import LoginModal from './AuthComponents/LoginModal'
 import SignUpModal from './AuthComponents/SignUpModal'
 
@@ -14,14 +13,8 @@ function LandingPage() {
         <link rel="stylesheet" href="./LandingStyles.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossOrigin="anonymous" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossOrigin="anonymous" />
-        <title>
-            Welcome
-        </title>
-        <link rel="icon" href="images/pear-half-outline-white.svg" type="image/x-icon" />
-        {/* The core Firebase JS SDK is always required and must be listed first */}
-        {/* TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries */}
         <header className="showcase">
+        <LoginModal variant="danger" buttonText="Go to App >" buttonStyle="app-button"/>
             <div className="content">
             <img src={pearImageWhite} className="logo" alt="Pear Planner" />
             <div className="title" style={{color: 'white'}}>
@@ -30,13 +23,7 @@ function LandingPage() {
             <div className="text" style={{color: 'white'}}>
                 Planning made simple.
             </div>
-            {/* <button type="button" className="landing-btn" data-toggle="modal" data-target="#modalLogin">
-                Login
-            </button>
-            <button type="button" className="landing-btn" data-toggle="modal" data-target="#modalRegister">
-                Sign Up
-            </button> */}
-            <LoginModal />
+            <LoginModal variant="primary" buttonText="Sign In"/>
             <SignUpModal />
             </div>
         </header>
@@ -75,64 +62,10 @@ function LandingPage() {
             </div>
             </div>
         </section>
-
-        {/* <div className="modal fade" id="modalLogin" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-                <div className="modal-body text-center">
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <form className="form-signin" id="modalLoginForm">
-                    <img className="mb-3" src={pearImageBlack} alt width={100} height={100} />
-                    <h1 className="h3 mb-3 font-weight-normal">Login to PearPlanner</h1>
-                    <label htmlFor="inputEmail" className="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autoFocus />
-                    <label htmlFor="inputPassword" className="sr-only">Password</label>
-                    <input type="password" id="inputPassword" style={{marginTop: 5, marginBottom: 15}} className="form-control" placeholder="Password" required />
-                    <div className="checkbox mb-3 mt-3">
-                    <label>
-                        <input type="checkbox" defaultValue="remember-me" /> Remember me
-                    </label>
-                    </div>
-                    <button className="btn btn-lg btn-dark btn-block" onClick="window.location.href='./index.html';" type="submit" style={{height: 45}}>Login</button>
-                </form>
-                </div>
-            </div>
-            </div>
-        </div> */}
-
-        <div className="modal fade" id="modalRegister" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-                <div className="modal-body text-center">
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <form className="form-signin" id="modalRegisterForm">
-                    <img className="mb-3" src={pearImageBlack} alt width={100} height={100} />
-                    <h1 className="h3 mb-3 font-weight-normal">Register with PearPlanner</h1>
-                    <label htmlFor="inputNewEmail" className="sr-only">Email address</label>
-                    <input type="email" id="inputNewEmail" className="form-control" placeholder="Email address" required autoFocus />
-                    <label htmlFor="inputNewPassword" className="sr-only">Enter Password</label>
-                    <input type="password" id="inputNewPassword" style={{marginTop: 5, marginBottom: 5}} className="form-control" placeholder="Password" required />
-                    <label htmlFor="inputPasswordConfirm" className="sr-only">Confirm Password</label>
-                    <input type="password" id="inputPasswordConfirm" style={{marginTop: 15, marginBottom: 15}} className="form-control" placeholder="Re-enter Password" required />
-                    {/* <a href="./index.html" class="btn btn-lg btn-dark btn-block" type="submit" style="height: 45px">Register</a> */}
-                    <button className="btn btn-lg btn-dark btn-block" onClick="window.location.href='./index.html';" type="submit" style={{height: 45}}>Sign Up</button>
-                    {/* <p class="mt-3 mb-3 text-muted">© 2020</p> */}
-                </form>
-                </div>
-            </div>
-            </div>
-        </div>
         <footer className="center bg-dark">
             <p>PearPlanner © 2020</p>
         </footer>
-        {/* Required JS */}
         </>
-
-      
     )
 }
 

@@ -22,7 +22,7 @@ function LoginForm() {
     // then use router history to redirect.
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
-        history.push('/app');
+      setTimeout(() => { history.push('/app') }, 1000);
     })
     .catch((error) => {
       console.log(error.code);
