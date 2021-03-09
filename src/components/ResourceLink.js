@@ -6,18 +6,24 @@ import './ResourceLink.css'
 
 function ResourceLink(props) {
 
+    let linkStr = "";
+
+    if(props.link.includes("http://") || props.link.includes("https://")) {
+        linkStr = props.link;
+    }  else {
+        linkStr = "http://" + props.link;
+    }
+
     const { user } = useAuth();
 
     function handleClick() {
-        console.log("delete resource");
-        console.log(props.resourceId);
         const refStr = 'users/' + user.uid + '/courses/' + props.courseId + '/resources/' + props.resourceId;
         firebase.database().ref(refStr).remove();
     }
 
     return (
         <li className="ResourceLink">
-            <a href={props.link}>{props.name}</a>
+            <a target="_blank" rel="noreferrer" href={linkStr}>{props.name}</a>
             <span className="delete-btn" onClick={handleClick}>✕</span>
         </li>
     )
