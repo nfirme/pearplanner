@@ -32,7 +32,7 @@ export function AuthProvider({ children }) {
 }
 
 AuthProvider.propTypes = {
-    children: PropTypes.function
+    children: PropTypes.array
 }
 
 // Checks for user entry in DATABASE.

@@ -27,6 +27,7 @@ function CourseList() {
             })
             courseCards.sort();
             setState(courseCards);
+            return () => userRef.off();
             });
     }, [state, setState])
     
