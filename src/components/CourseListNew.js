@@ -42,7 +42,7 @@ function CourseList() {
 
 function getResourceValues(course) {
     if (Object.prototype.hasOwnProperty.call(course, 'resources')) {
-        return Object.values(course.resources);
+        return Object.entries(course.resources);
     } else {
         return [];
     }

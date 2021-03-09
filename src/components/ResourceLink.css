@@ -1,0 +1,9 @@
+.delete-btn {
+    margin-left: 10px;
+    display: none;
+}
+
+.ResourceLink:hover .delete-btn {
+    display: inline-block;
+}
+

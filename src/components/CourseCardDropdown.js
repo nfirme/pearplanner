@@ -2,11 +2,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import NewResourceModal from './FormComponents/NewResourceModal';
+import ResourceLink from './ResourceLink'
 
 function CourseCardDropdown(props) {
 
     const resourceLinks = props.resources.map(r => {
-        return <li><a href={r.link}>{r.name}</a></li>
+        return (<ResourceLink 
+                resourceId={r[0]} 
+                link={r[1].link} 
+                name={r[1].name}
+                courseId={props.courseId}
+                />)
     })
 
     return (
