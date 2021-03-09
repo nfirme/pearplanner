@@ -1,13 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import firebase from '../../firebase'
-import { UserContext } from '../AuthComponents/AuthComponents'
+import { useAuth } from '../AuthComponents/AuthContext'
 import PropTypes from 'prop-types'
 
 function NewCourseForm(props) {
 
-    const { user } = useContext(UserContext);
+    const { user } = useAuth();
 
     const [field1, setField1] = useState("");
     const [field2, setField2] = useState("");

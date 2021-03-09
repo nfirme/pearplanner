@@ -1,15 +1,15 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import LoginForm from './LoginForm'
-import UserContext from '../AuthComponents/UserContext'
+import { useAuth } from './AuthContext'
 import { useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './LoginModal.css'
 
 function LoginModal(props) {
 
-  const { user } = useContext(UserContext);
+  const { user } = useAuth();
   let history = useHistory();
 
     const [show, setShow] = useState(false);

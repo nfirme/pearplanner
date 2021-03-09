@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React from "react";
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Our components!
 import AssignmentList from './components/AssignmentList'
@@ -8,7 +8,8 @@ import EventCalendar from './components/EventCalendar'
 import Footer from './components/Footer'
 import LandingPage from './components/LandingPage'
 import Settings from './components/Settings'
-import { UserAuth, UserContext } from './components/AuthComponents/AuthComponents'
+import { AuthProvider } from './components/AuthComponents/AuthContext'
+import PrivateRoute from './components/utils/PrivateRoute'
 // Import CSS!
 import './App.css'
 
@@ -23,33 +24,24 @@ function Layout() {
 
 function App() {
 
-    // State and context values for authorization
-    const [user, setUser] = useState(null);
-    const providerValue = useMemo(() => ({ user, setUser }), [user, setUser]);
-
-    useEffect(() => {
-        console.log(user);
-    })
-
     return (
         <Router>
         <div className="App">
-        <UserContext.Provider value={providerValue}>
+        <AuthProvider>
             <Switch>
                 <Route exact path="/" component={LandingPage} />
                 <Route component={Layout} />
             </Switch>
             <div className="main-wrapper">
                 <div className="main">
-                    <Route exact path="/app" component={CourseList} />
-                    <Route exact path="/classes" component={CourseList} />
-                    <Route exact path="/todo" component={AssignmentList} />
-                    <Route exact path="/calendar" component={EventCalendar} />
-                    <Route exact path="/settings" component={Settings} />
-                    <UserAuth />
+                    <PrivateRoute exact path="/app" component={CourseList} />
+                    <PrivateRoute exact path="/classes" component={CourseList} />
+                    <PrivateRoute exact path="/todo" component={AssignmentList} />
+                    <PrivateRoute exact path="/calendar" component={EventCalendar} />
+                    <PrivateRoute exact path="/settings" component={Settings} />
                 </div>
             </div>
-        </UserContext.Provider>
+        </AuthProvider>
         </div> 
         </Router>
     )

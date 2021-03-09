@@ -1,13 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import firebase from '../../firebase'
-import { UserContext } from '../AuthComponents/AuthComponents'
+import { useAuth } from '../AuthComponents/AuthContext'
 import PropTypes from 'prop-types'
 
 function NewResourceForm(props) {
 
-    const { user } = useContext(UserContext);
+    const { user } = useAuth();
 
     const [name, setName] = useState("");
     const [link, setLink] = useState("");
