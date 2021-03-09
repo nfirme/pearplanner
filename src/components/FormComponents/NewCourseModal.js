@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import NewCourseForm from './NewCourseForm'
+import './NewCourseModal.css'
 
 function NewCourseModal() {
     
@@ -11,8 +12,8 @@ function NewCourseModal() {
   
     return (
       <>
-        <Button style={{borderRadius: 10, fontSize: 16, color: "blue" ,backgroundColor: "transparent"}} onClick={handleShow}>
-          New Class
+        <Button variant="outline-primary" onClick={handleShow} className="course-btn">
+          New class
         </Button>
   
         <Modal centered show={show} onHide={handleClose} size="lg">

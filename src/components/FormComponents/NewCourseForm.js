@@ -20,15 +20,6 @@ function NewCourseForm(props) {
     async function handleSubmit(event) {
         event.preventDefault();
         if (user) {
-            // const courseId = 3; // do something to generate custom course ID
-            // const userRef = firebase.database().ref('users/' + user.uid + '/courses/' + courseId);
-            // userRef.set({
-                // courseTitle: field1,
-                // courseName: field2,
-                // instructor: field3,
-                // color: "teal",
-                // custom: true
-            // })
             const listRef = firebase.database().ref('users/' + user.uid + '/courses');
             const newRef = listRef.push();
             const key = newRef.key;
@@ -75,7 +66,7 @@ function NewCourseForm(props) {
                 />
             </Form.Group>
             <Button block size="lg" type="submit" disabled={!validateForm()}>
-            Login
+            Submit
             </Button>
         </Form>
         </div>
