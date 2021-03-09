@@ -1,6 +1,7 @@
 .delete-btn {
     margin-left: 10px;
     display: none;
+    cursor: pointer;
 }
 
 .ResourceLink:hover .delete-btn {
