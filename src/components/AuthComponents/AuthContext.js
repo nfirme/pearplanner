@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
             if (user) signInUser(user);
           });
           return () => unsubscribe();
-    }, [])
+    })
 
     const providerValue = { user };
 

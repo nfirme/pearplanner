@@ -13,7 +13,7 @@ function CourseList() {
     useEffect(() => {
         const userRef = firebase.database().ref('users/' + user.uid + '/courses');
         userRef.once('value', (snapshot) => {
-            const courses = Object.values(snapshot.val());
+            const courses = snapshot.val() ? Object.values(snapshot.val()) : [];
             const courseCards = courses.map(c => {
                 const resources = getResourceValues(c);
                 return <CourseCard 

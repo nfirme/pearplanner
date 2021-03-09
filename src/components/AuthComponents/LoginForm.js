@@ -17,17 +17,12 @@ function LoginForm() {
   async function handleSubmit(event) {
     event.preventDefault();
   
-    // On successful user log in, Auth observer is triggered
-    // user state will be updated in AuthListener and 
-    // then use router history to redirect.
-    firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => {
-      setTimeout(() => { history.push('/app') }, 1000);
-    })
-    .catch((error) => {
-      console.log(error.code);
-      console.log(error.message);
-    });
+    try {
+      await firebase.auth().signInWithEmailAndPassword(email, password);
+      history.push('/app');
+    } catch {
+      console.log("error");
+    }
   }
 
   return (

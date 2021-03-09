@@ -22,15 +22,12 @@ function SignUpForm() {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(() => {
-            console.log("Successfully signed up user.");
-            history.push('/app');
-        })
-        .catch((error) => {
-            console.log(error.code);
-            console.log(error.message);
-        });
+        try {
+          await firebase.auth().createUserWithEmailAndPassword(email, password);
+          history.push('/app');
+        } catch {
+          console.log("error");
+        }
     }
 
     return (
