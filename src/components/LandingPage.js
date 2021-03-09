@@ -63,7 +63,7 @@ function LandingPage() {
             </div>
         </section>
         <footer className="center bg-dark">
-            <p>PearPlanner © 2020</p>
+            <p>PearPlanner © 2021</p>
         </footer>
         </>
     )
