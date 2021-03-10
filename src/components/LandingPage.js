@@ -18,7 +18,7 @@ function LandingPage() {
             <div className="content">
             <img src={pearImageWhite} className="logo" alt="Pear Planner" />
             <div className="title" style={{color: 'white'}}>
-                Welcome to Pear Planner
+                Welcome to PearPlanner
             </div>
             <div className="text" style={{color: 'white'}}>
                 Planning made simple.

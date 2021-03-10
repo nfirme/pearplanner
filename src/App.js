@@ -7,7 +7,7 @@ import CourseList from './components/CourseListNew'
 import EventCalendar from './components/EventCalendar'
 import Footer from './components/Footer'
 import LandingPage from './components/LandingPage'
-import Settings from './components/Settings'
+import Settings from './components/SettingsNew'
 import { AuthProvider } from './components/AuthComponents/AuthContext'
 import PrivateRoute from './components/utils/PrivateRoute'
 // Import CSS!

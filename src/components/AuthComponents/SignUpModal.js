@@ -11,7 +11,7 @@ function SignUpModal() {
   
     return (
       <>
-        <Button style={{marginLeft: 4}} variant="success" onClick={handleShow}>
+        <Button style={{marginLeft: 4}} variant="primary" onClick={handleShow}>
           Sign Up
         </Button>
   

@@ -1,0 +1,19 @@
+.SettingsFormComponent {
+    width: 50%;
+    top: 50px;
+    margin: auto;
+}
+
+.success-alert {
+    width: 100%;
+}
+
+.Settings {
+    margin: auto;
+}
+
+.settings-user {
+    position: absolute;
+    top: 20px;
+    left: 10%;
+}
