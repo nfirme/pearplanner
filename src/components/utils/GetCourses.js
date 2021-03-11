@@ -2,6 +2,26 @@ import firebase from '../../firebase'
 
 // Fetches course data from Canvas, pushes to Firebase,
 // then returns the array of current course objects
+
+function getCurrentTerm(json) {
+    var n = []
+    var currentTerm = 0
+    console.log("MY NAME JEFF")
+    for (var i = 0; i < json.length; i++) {
+        if (json[i].enrollment_term_id > currentTerm) {
+            currentTerm = json[i].enrollment_term_id
+        }
+        if (json[i].name == null) {
+            json[i].name = ""
+        }
+        n = json[i].name.split("-")
+        json[i].courseName = n[n.length - 1]
+        n = json[i].name.split(/[\s-]/)
+        json[i].courseTitle = n.slice(0, 2).join(" ")
+    }
+    return currentTerm
+}
+
 async function getCourses(token, uid) {
 
     const proxyUrl = 'https://cors.bridged.cc/'
@@ -11,24 +31,10 @@ async function getCourses(token, uid) {
     try {
         let response = await fetch(proxyUrl + targetUrl + token)
         if (response.ok) {
-            var n = []
             var colorIterator = 0
-            var currentTerm = 0
             var col = ""
             var json = await response.json()
-
-            for (var i = 0; i < json.length; i++) {
-                if (json[i].enrollment_term_id > currentTerm) {
-                    currentTerm = json[i].enrollment_term_id
-                }
-                if(json[i].name) {
-                    n = json[i].name.split("-")
-                    json[i].courseName = n[n.length - 1];
-                    json[i].courseName = json[i].courseName.substring(1);
-                    n = json[i].name.split(/[\s-]/)
-                    json[i].courseTitle = n.slice(0, 2).join(" ")
-                }
-            }
+            var currentTerm = getCurrentTerm(json)
 
             const currentClasses = json.filter((c) => c.enrollment_term_id == currentTerm);
 
