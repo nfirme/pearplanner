@@ -25,6 +25,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "test:coverage": "jest --coverage",
+    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -48,6 +50,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.5",
+    "coveralls": "^3.1.0",
     "eslint": "^7.19.0",
     "eslint-plugin-react": "^7.22.0",
     "jest-dom": "^4.0.0",
