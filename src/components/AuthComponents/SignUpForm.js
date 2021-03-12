@@ -58,7 +58,7 @@ function SignUpForm() {
               onChange={(e) => setConfirmPass(e.target.value)}
             />
           </Form.Group>
-          <Button block size="lg" type="submit" disabled={!validateForm()}>
+          <Button id="send-sign-up" block size="lg" type="submit" disabled={!validateForm()}>
             Sign Up
           </Button>
         </Form>
