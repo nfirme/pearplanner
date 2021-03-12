@@ -14,7 +14,6 @@ function SignUpForm() {
     function validateForm() {
         return (
             email.length > 0 &&
-            email.contains("@") &&
             password.length > 0 &&
             password === confirmPass
         );
