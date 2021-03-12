@@ -23,7 +23,7 @@ function LoginModal(props) {
   
     return (
       <>
-        <Button style={{marginRight: 4}} variant={props.variant} onClick={handleClick} className={props.buttonStyle}>
+        <Button id="login" style={{marginRight: 4}} variant={props.variant} onClick={handleClick} className={props.buttonStyle}>
           {props.buttonText}
         </Button>
   
