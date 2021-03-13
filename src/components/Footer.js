@@ -10,7 +10,7 @@ function Footer() {
 
     return (
         <div className="footer">
-            <Button data-testid="button" style={{backgroundColor: "transparent", color: "green", borderRadius: 10, float: "right", marginRight: 10}} variant="success" onClick={() => {
+            <Button id="sign-out" data-testid="button" style={{backgroundColor: "transparent", color: "green", borderRadius: 10, float: "right", marginRight: 10}} variant="success" onClick={() => {
                 firebase.auth().signOut();
                 history.push('/');
             }}>Sign-out</Button>
