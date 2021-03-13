@@ -12,7 +12,7 @@ function NewCourseModal() {
   
     return (
       <>
-        <Button variant="outline-primary" onClick={handleShow} className="course-btn">
+        <Button id="new-course" variant="outline-primary" onClick={handleShow} className="course-btn">
           New class
         </Button>
   
