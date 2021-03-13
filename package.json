@@ -32,7 +32,7 @@
     "eject": "react-scripts eject"
   },
   "jest": {
-    "moduleNameMapper": {"^.+\\.(css|less|gif|png)$": "<rootDir>/CSSStub.js"},
+    "moduleNameMapper": {"^.+\\.(css|less|gif|png|svg)$": "<rootDir>/CSSStub.js"},
     "transform": {
       "\\.[jt]sx?$": "babel-jest"
     }
