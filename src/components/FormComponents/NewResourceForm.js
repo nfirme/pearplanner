@@ -52,7 +52,7 @@ function NewResourceForm(props) {
                     onChange={(e) => setLink(e.target.value)}
                 />
             </Form.Group>
-            <Button block size="lg" type="submit" disabled={!validateForm()}>
+            <Button id="submit-new-resource" block size="lg" type="submit" disabled={!validateForm()}>
             Submit
             </Button>
         </Form>
