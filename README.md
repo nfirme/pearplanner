@@ -8,4 +8,16 @@ https://travis-ci.org/github/nfirme/pearplanner/branches
 
 **React Style Guide:**
  https://github.com/airbnb/javascript/tree/master/react 
+ 
+**Installation**
+```
+npm install
+```
+**Running**
+```
+npm start
+```
+**Testing**
+```
+npm test
 ```
