@@ -65,7 +65,7 @@ function NewCourseForm(props) {
                     onChange={(e) => setField3(e.target.value)}
                 />
             </Form.Group>
-            <Button block size="lg" type="submit" disabled={!validateForm()}>
+            <Button id="submit-new-course" block size="lg" type="submit" disabled={!validateForm()}>
             Submit
             </Button>
         </Form>

@@ -13,7 +13,7 @@ function NewResourceModal(props) {
   
     return (
       <>
-        <Button variant="outline-primary" size="lg" onClick={handleShow} className="resource-btn">
+        <Button id="new-resource" variant="outline-primary" size="lg" onClick={handleShow} className="resource-btn">
           +
         </Button>
   
