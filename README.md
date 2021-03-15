@@ -1,6 +1,6 @@
 # PearPlanner
 
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/dashboard?id=nfirme_pearplanner) <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/nfirme/pearplanner"> <img alt="Travis (.org)" src="https://img.shields.io/travis/nfirme/pearplanner"> <a href='https://coveralls.io/github/nfirme/pearplanner?branch=frontend'><img src='https://coveralls.io/repos/github/nfirme/pearplanner/badge.svg?branch=frontend' alt='Coverage Status' /></a>
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=nfirme_pearplanner&metric=ncloc)](https://sonarcloud.io/dashboard?id=nfirme_pearplanner) <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/nfirme/pearplanner"> <img alt="Travis (.org)" src="https://img.shields.io/travis/nfirme/pearplanner"> <a href='https://coveralls.io/github/nfirme/pearplanner?branch=frontend'><img src='https://coveralls.io/repos/github/nfirme/pearplanner/badge.svg?branch=frontend' alt='Coverage Status' /></a>
 
 
 
