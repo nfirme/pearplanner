@@ -13,6 +13,8 @@ jobs:
       && rm -rf ./coverage
 deploy:
   provider: firebase
+  on:
+    branch: frontend
   token:
     secure: Rwct2iwCPb4UBUY3u7HHv8UFkcJxjvyGIwjygpAN/RRxBoy2zepE+SZ7gSATzmDz22qCEQVwgNutkv+t9eV7DpTxN4W/GBhwuNeeSrWoEJ1f3Ejqt4s3q0H/cdMhQD7dS2Q70mGgqdnHlC3CUYJ9nFO6VAuntzxmP3bRu9YzMrsTENwVRVzxqGyzG2KmpoLeiSEHYe+/OWA3GTY8T2f2MIiQEggMqbi+O5vH+hHonT/v6HpaXUkbb8sJPO16Yag0jwz1Kibu30z7E4JvdEzuMgXP/bgj5aDl3TsiZH7RMRiNvnLvntDng5yhSa15F6EVr11qyLV3Q/XHTpVdJkEZOAdeu4258MbVFWc1u60unsEZoVhcszOhWHsxavi+MR8UGKR0/32Vnht7G3VqnbBtG0A+btYjoQTJyznLp+UQLdbKNo1BwBplMIl7HEI95CktbdefjqVZdZrjw332XgQvDtxKWOAxx2EaIxD3Bs7Pt2pOiHivePGQa8DdO9fUDi7y9b9Nb21MRpthSPf5RcxdX/oLTF4NOfmexBRVH5jB67wm+XxYX534D44EEO7C6MPBvmp24DUBv+2lOFRmpGIOFw6OCu/eSsTEFGdxt3/4Eo2QSkbpAjsOhrOO/5/ja9aj0vPK89zjQXJYItl01tjz5prgo79uaU5bGHmx8tbJV54=
 env:
