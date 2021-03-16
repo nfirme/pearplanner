@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 function NavItem(props) {
 
     const pix = props.d.map(str =>
-        <path key={props.id} fillRule="evenodd" d={str}></path>
+        <path fillRule="evenodd" d={str}></path>
     );
 
     return (
