@@ -7,6 +7,9 @@
 **You can see latest build and coverage report here:**
 https://travis-ci.org/github/nfirme/pearplanner/branches
 
+**You can see the app here:**
+https://pearplanner-4c7fb.web.app
+
 **React Style Guide:**
  https://github.com/airbnb/javascript/tree/master/react 
  
